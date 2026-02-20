@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "corpus-callosum"
+version = "0.1.0"
+description = "Convenient access point for internal Callosum developer tooling"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "Hamzah Chariwala" },
+]
+requires-python = ">=3.10"
+keywords = ["callosum", "developer-tooling", "cli"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7",
+  "pytest-cov>=4",
+]
+
+[project.scripts]
+callosum = "corpus_callosum.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Callosum/corpus-callosum"
+Repository = "https://github.com/Callosum/corpus-callosum"
+Issues = "https://github.com/Callosum/corpus-callosum/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/corpus_callosum"]
+
+[tool.hatch.envs.default]
+features = ["dev"]
+
+[tool.hatch.envs.default.scripts]
+test = "pytest {args:tests}"
+test-cov = "pytest --cov=corpus_callosum {args:tests}"
