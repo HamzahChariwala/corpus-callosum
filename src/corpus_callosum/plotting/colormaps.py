@@ -28,6 +28,11 @@ _DEFINITIONS: dict[str, list[str]] = {
         palette.royal_purple,
         palette.pale_purple,
     ],
+    "callosum_blues_purples": [
+        palette.deep_blue,
+        palette.royal_purple,
+        palette.pale_purple,
+    ],
 }
 
 # ── Registration ──────────────────────────────────────────────────────────────
